@@ -5,10 +5,25 @@ public class CanAttend {
 	//precondition: 
 	//postcondition: 
 	public static boolean canAttend(ArrayList<MeetingInterval> meetings) {
-		//your implementation here
 		System.out.println(meetings);
-		return false; //replace me with actual logic please!
+
+		for (int i = 0; i < meetings.size(); i++) {
+			int s1 = meetings.get(i).getStart();
+			int e1 = meetings.get(i).getEnd();
+
+			for (int j = i + 1; j < meetings.size(); j++) {
+				int s2 = meetings.get(j).getStart();
+				int e2 = meetings.get(j).getEnd();
+
+				// Checks if meetings overlap
+				if (s1 < s2 && s2 < e1) return false;
+				if (s1 < e2 && e2 < e1) return false;
+			}
+		}
+
+		return true;
 	}
+
 	public static void main(String[] args) {
 		ArrayList<MeetingInterval> meet = new ArrayList<MeetingInterval>();
 		for(int i =0; i<10; i++) {
