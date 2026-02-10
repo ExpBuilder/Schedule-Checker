@@ -2,8 +2,10 @@ import java.util.ArrayList;
 
 public class CanAttend {
 
-	//precondition: Inputs 
-	//postcondition: 
+	//precondition: Input "meetings" should be an ArrayList of properly defined MeetingInterval objects. 
+	/*postcondition: This method will return a boolean on if the elements in ArrayList "meetings" overlap. 
+	MeetingInterval objects "a" and "b" overlap if "a" has a startTime or endTime between those of "b", or the other way around, inclusive. 
+	This also means that if "a" were to have a startTime that equaled the endTime of "b", "a" and "b" would overlap.*/
 	public static boolean canAttend(ArrayList<MeetingInterval> meetings) {
 		for (int i = 0; i < meetings.size(); i++) {
 			int s1 = meetings.get(i).getStart();
